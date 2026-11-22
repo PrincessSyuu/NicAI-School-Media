@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">NovaDeck</string>
+    <string name="brand_creator">Bert Developer</string>
+    <string name="brand_tagline">Futuristic Study &amp; Slide Studio • Built by Bert Developer</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_slides">Slides</string>
+    <string name="nav_nicai">NicAI</string>
+    <string name="nav_study">Study Hub</string>
+    <string name="nav_plans">Plans</string>
+    <string name="ask_nicai_fab">Ask NicAI</string>
+    <string name="about_bert_title">About Bert Developer</string>
+    <string name="about_bert_body">Bert Developer builds sleek, accessible learning and productivity tools for Junior High (SMP), Senior High (SMA), and young professionals. NovaDeck combines instant AI-structured presentations with zero-overwhelm study modules and NicAI—your patient, step-by-step study coach.</string>
+    <string name="slide_studio_title">Slide Studio</string>
+    <string name="slide_studio_subtitle">Topic-to-slides in seconds. Zero box-dragging.</string>
+    <string name="study_hub_title">Study Support Hub</string>
+    <string name="study_hub_subtitle">Bite-sized SMP &amp; SMA modules built for calm focus</string>
+    <string name="nicai_title">NicAI Assistant</string>
+    <string name="nicai_subtitle">Patient SMP/SMA tutor &amp; presentation coach</string>
+    <string name="plans_title">Plans &amp; Licensing</string>
+    <string name="plans_subtitle">Free for everyday study. Upgrade when you need more.</string>
+</resources>

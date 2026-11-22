@@ -1,0 +1,137 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Authenticated student or young professional profile storing school/Google email, tier status, daily NicAI usage, and completed study module IDs.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the account owner."
+        },
+        "email": {
+          "type": "string",
+          "description": "Google or Google Workspace school email address (PII, owner-only)."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "User display name from Google Sign-In."
+        },
+        "accountType": {
+          "type": "string",
+          "enum": ["google_personal", "school_workspace"],
+          "description": "Whether the signed-in email is a personal Gmail or a school/organization Google Workspace domain."
+        },
+        "proActive": {
+          "type": "boolean",
+          "description": "Whether NovaDeck Pro preview/plan is active."
+        },
+        "completedModuleIds": {
+          "type": "array",
+          "description": "List of completed Study Hub module IDs (max 50)."
+        },
+        "dailyPromptsUsed": {
+          "type": "integer",
+          "description": "Number of NicAI free prompts used on promptDate."
+        },
+        "promptDate": {
+          "type": "string",
+          "description": "YYYY-MM-DD local date key for daily free prompt quota."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when profile was created (client sends FieldValue.serverTimestamp())."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when profile was last updated (client sends FieldValue.serverTimestamp())."
+        }
+      },
+      "required": [
+        "userId",
+        "email",
+        "displayName",
+        "accountType",
+        "proActive",
+        "completedModuleIds",
+        "dailyPromptsUsed",
+        "promptDate",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "CloudDeck": {
+      "title": "CloudDeck",
+      "description": "Presentation deck created or saved in Slide Studio under a user's personal subcollection.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the deck owner."
+        },
+        "title": {
+          "type": "string",
+          "description": "Deck title."
+        },
+        "subtitle": {
+          "type": "string",
+          "description": "Deck subtitle."
+        },
+        "audience": {
+          "type": "string",
+          "description": "Target audience label (e.g. SMP Students, SMA Students, Young Pro / Office)."
+        },
+        "themeName": {
+          "type": "string",
+          "enum": ["MINIMALIST_TECH", "CLEAN_ACADEMIC", "DARK_NEON", "EXECUTIVE_PITCH"],
+          "description": "Selected SlideTheme enum name."
+        },
+        "aiGenerated": {
+          "type": "boolean",
+          "description": "Whether this deck was generated via Gemini AI."
+        },
+        "slides": {
+          "type": "array",
+          "description": "Ordered list of slide maps (1 to 15 slides)."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp on creation (client sends FieldValue.serverTimestamp())."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp on last update (client sends FieldValue.serverTimestamp())."
+        }
+      },
+      "required": [
+        "userId",
+        "title",
+        "subtitle",
+        "audience",
+        "themeName",
+        "aiGenerated",
+        "slides",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/UserProfile"
+      },
+      "description": "Owner-isolated user profile, email, study progress, and quota state."
+    },
+    "/users/{userId}/decks/{deckId}": {
+      "schema": {
+        "$ref": "#/entities/CloudDeck"
+      },
+      "description": "Owner-isolated saved presentation decks synced across sessions."
+    }
+  }
+}

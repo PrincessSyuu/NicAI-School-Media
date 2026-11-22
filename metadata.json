@@ -1,0 +1,6 @@
+{
+  "name": "NovaDeck",
+  "description": "Futuristic educational & presentation platform with NicAI tutor and Slide Studio by Bert Developer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
